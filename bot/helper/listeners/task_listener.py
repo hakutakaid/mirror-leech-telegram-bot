@@ -323,6 +323,7 @@ class TaskListener(TaskConfig):
                 msg += f"\n<b>Corrupted Files: </b>{mime_type}"
             msg += f"\n<b>cc: </b>{self.tag}\n\n"
             if not files:
+                pass
                 #await send_message(self.message, msg)
             else:
                 fmsg = ""
@@ -333,7 +334,7 @@ class TaskListener(TaskConfig):
                         await sleep(1)
                         fmsg = ""
                 if fmsg != "":
-                    #await send_message(self.message, msg + fmsg)
+                    pass#await send_message(self.message, msg + fmsg)
         else:
             msg += f"\n\n<b>Type: </b>{mime_type}"
             if mime_type == "Folder":
