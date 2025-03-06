@@ -1,8 +1,8 @@
 # REQUIRED CONFIG
 BOT_TOKEN = ""
-OWNER_ID = 0
-TELEGRAM_API = 0
-TELEGRAM_HASH = ""
+OWNER_ID = 5880376147
+TELEGRAM_API = 24118822
+TELEGRAM_HASH = "4c2434f9b467afa1aa58141cc61b2f3a"
 # OPTIONAL CONFIG
 TG_PROXY = {}
 USER_SESSION_STRING = ""
@@ -59,7 +59,7 @@ USENET_SERVERS = [
     }
 ]
 # Update
-UPSTREAM_REPO = ""
+UPSTREAM_REPO = "https://github.com/hakutakaid/mirror-leech-telegram-bot.git"
 UPSTREAM_BRANCH = "master"
 # Leech
 LEECH_SPLIT_SIZE = 0

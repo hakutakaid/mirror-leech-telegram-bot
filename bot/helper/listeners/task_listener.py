@@ -323,17 +323,17 @@ class TaskListener(TaskConfig):
                 msg += f"\n<b>Corrupted Files: </b>{mime_type}"
             msg += f"\n<b>cc: </b>{self.tag}\n\n"
             if not files:
-                await send_message(self.message, msg)
+                #await send_message(self.message, msg)
             else:
                 fmsg = ""
                 for index, (link, name) in enumerate(files.items(), start=1):
                     fmsg += f"{index}. <a href='{link}'>{name}</a>\n"
                     if len(fmsg.encode() + msg.encode()) > 4000:
-                        await send_message(self.message, msg + fmsg)
+                        #await send_message(self.message, msg + fmsg)
                         await sleep(1)
                         fmsg = ""
                 if fmsg != "":
-                    await send_message(self.message, msg + fmsg)
+                    #await send_message(self.message, msg + fmsg)
         else:
             msg += f"\n\n<b>Type: </b>{mime_type}"
             if mime_type == "Folder":
@@ -374,7 +374,7 @@ class TaskListener(TaskConfig):
                 msg += f"\n\nPath: <code>{rclone_path}</code>"
                 button = None
             msg += f"\n\n<b>cc: </b>{self.tag}"
-            await send_message(self.message, msg, button)
+            #await send_message(self.message, msg, button)
         if self.seed:
             await clean_target(self.up_dir)
             async with queue_dict_lock:
