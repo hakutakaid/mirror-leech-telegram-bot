@@ -495,10 +495,9 @@ class TaskConfig:
         if len(self.bulk) != 0:
             msg = input_list[:1]
             msg.append(f"{self.bulk[0]} -i {self.multi - 1} {self.options}")
-            #msgts = " ".join(msg)
+            msgts = " ".join(msg)
             if self.multi > 2:
-                #msgts += f"\nCancel Multi: <code>/{BotCommands.CancelTaskCommand[1]} {self.multi_tag}</code>"
-                msgts = f"\nCancel Multi: <code>/{BotCommands.CancelTaskCommand[1]} {self.multi_tag}</code>"
+                msgts += f"\nCancel Multi: <code>/{BotCommands.CancelTaskCommand[1]} {self.multi_tag}</code>"
             nextmsg = await send_message(self.message, msgts)
         else:
             msg = [s.strip() for s in input_list]
@@ -547,12 +546,11 @@ class TaskConfig:
                 del self.options[index + 1]
             self.options = " ".join(self.options)
             b_msg.append(f"{self.bulk[0]} -i {len(self.bulk)} {self.options}")
-            #msg = " ".join(b_msg)
+            msg = " ".join(b_msg)
             if len(self.bulk) > 2:
                 self.multi_tag = token_urlsafe(3)
                 multi_tags.add(self.multi_tag)
-                #msg += f"\nCancel Multi: <code>/{BotCommands.CancelTaskCommand[1]} {self.multi_tag}</code>"
-                msg = f"\nCancel Multi: <code>/{BotCommands.CancelTaskCommand[1]} {self.multi_tag}</code>"
+                msg += f"\nCancel Multi: <code>/{BotCommands.CancelTaskCommand[1]} {self.multi_tag}</code>"
             nextmsg = await send_message(self.message, msg)
             nextmsg = await self.client.get_messages(
                 chat_id=self.message.chat.id, message_ids=nextmsg.id
