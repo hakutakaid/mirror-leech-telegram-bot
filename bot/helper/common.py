@@ -499,7 +499,6 @@ class TaskConfig:
             if self.multi > 2:
                 msgts += f"\nCancel Multi: <code>/{BotCommands.CancelTaskCommand[1]} {self.multi_tag}</code>"
             nextmsg = await send_message(self.message, msgts)
-            await nextmsg.delete()
         else:
             msg = [s.strip() for s in input_list]
             index = msg.index("-i")
@@ -512,10 +511,10 @@ class TaskConfig:
             if self.multi > 2:
                 msgts += f"\nCancel Multi: <code>/{BotCommands.CancelTaskCommand[1]} {self.multi_tag}</code>"
             nextmsg = await send_message(nextmsg, msgts)
-            await nextmsg.delete()
         nextmsg = await self.client.get_messages(
             chat_id=self.message.chat.id, message_ids=nextmsg.id
         )
+        await nextmsg.delete()
         if self.message.from_user:
             nextmsg.from_user = self.user
         else:
@@ -557,6 +556,7 @@ class TaskConfig:
             nextmsg = await self.client.get_messages(
                 chat_id=self.message.chat.id, message_ids=nextmsg.id
             )
+            await nextmsg.delete()
             if self.message.from_user:
                 nextmsg.from_user = self.user
             else:
