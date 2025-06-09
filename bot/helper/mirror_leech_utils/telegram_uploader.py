@@ -165,11 +165,11 @@ class TelegramUploader:
         for msg in self._media_dict[key][subkey]:
             if key == "videos":
                 input_media = InputMediaVideo(
-                    media=msg.video.file_id, caption=msg.caption
+                    media=msg.video.file_id
                 )
             else:
                 input_media = InputMediaDocument(
-                    media=msg.document.file_id, caption=msg.caption
+                    media=msg.document.file_id
                 )
             rlist.append(input_media)
         return rlist
@@ -362,7 +362,6 @@ class TelegramUploader:
                     document=self._up_path,
                     quote=True,
                     thumb=thumb,
-                    caption=cap_mono,
                     force_document=True,
                     disable_notification=True,
                     progress=self._upload_progress,
@@ -391,7 +390,6 @@ class TelegramUploader:
                 self._sent_msg = await self._sent_msg.reply_video(
                     video=self._up_path,
                     quote=True,
-                    caption=cap_mono,
                     duration=duration,
                     width=width,
                     height=height,
@@ -410,7 +408,6 @@ class TelegramUploader:
                 self._sent_msg = await self._sent_msg.reply_audio(
                     audio=self._up_path,
                     quote=True,
-                    caption=cap_mono,
                     duration=duration,
                     performer=artist,
                     title=title,
@@ -425,7 +422,6 @@ class TelegramUploader:
                 self._sent_msg = await self._sent_msg.reply_photo(
                     photo=self._up_path,
                     quote=True,
-                    caption=cap_mono,
                     disable_notification=True,
                     progress=self._upload_progress,
                 )

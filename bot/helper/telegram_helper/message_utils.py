@@ -49,15 +49,15 @@ async def edit_message(message, text, buttons=None, block=True):
         return str(e)
 
 
-async def send_file(message, file, caption=""):
+async def send_file(message, file):
     try:
         return await message.reply_document(
-            document=file, quote=True, caption=caption, disable_notification=True
+            document=file, quote=True, disable_notification=True
         )
     except FloodWait as f:
         LOGGER.warning(str(f))
         await sleep(f.value * 1.2)
-        return await send_file(message, file, caption)
+        return await send_file(message, file)
     except Exception as e:
         LOGGER.error(str(e))
         return str(e)
