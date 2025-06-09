@@ -62,7 +62,7 @@ USENET_SERVERS = [
 HYDRA_IP = ""
 HYDRA_API_KEY = ""
 # Update
-UPSTREAM_REPO = "https://github.com/hakutakaid/mirror-leech-telegram-bot"
+UPSTREAM_REPO = "https://github.com/hakutakaid/mirror-leech-telegram-bot.git"
 UPSTREAM_BRANCH = "master"
 # Leech
 LEECH_SPLIT_SIZE = 0
